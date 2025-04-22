@@ -1,22 +1,66 @@
-# Intrusion Detection System (IDS) - Windows Version
+🔐 Intrusion Detection System (IDS) — Project Summary
+📌 Overview
+This project is a multi-client, SSL-secured Intrusion Detection System with a real-time GUI dashboard. It detects suspicious patterns in network logs, classifies threats, visualizes data using charts, and supports alert popups and auto logging.
 
-This is a simple Intrusion Detection System using raw sockets and Python. It captures packets, detects SYN scans, applies firewall rules to block suspicious IPs, and uses a machine learning model for anomaly detection.
+🧠 Key Features
+✅ Multi-client architecture: Supports any number of clients sending alerts.
 
-## ✅ Features
+🔐 SSL Encryption: Uses TLS to secure communication between clients and server.
 
-- Real-time packet sniffing (Raw Sockets)
-- SYN scan detection
-- ML-based anomaly detection using Isolation Forest
-- IP blocking using Windows Firewall
-- GUI log viewer
-- Daily intrusion report generation
-- Logs packet features for future ML training
+🖥 Interactive GUI: Real-time logs, threat charts, and alert popups.
 
-## 🔧 Requirements
+📊 Threat Classification: Categorizes threats (e.g., attack, scan, malicious) with severity levels.
 
-- Python 3.8+
-- Run VS Code as Administrator
-- Install dependencies:
+➕ Dynamic Threat Management: Threat patterns and severities stored in a SQLite DB and easily modifiable.
 
-```bash
-pip install pandas scikit-learn
+⚙️ Auto Logging Module: Simulates live threats for testing and demos.
+
+💡 No Code Recompilation Required: Adding new clients or modifying threats does not require recompiling code.
+
+🧱 Tech Stack
+Python: Core implementation
+
+Socket Programming: Secure client-server architecture
+
+SSL/TLS: For encrypted transmission
+
+SQLite3: Threat classification database
+
+Tkinter: GUI dashboard
+
+Matplotlib: Real-time threat charts
+
+PyInstaller: Converts Python GUI to standalone .exe
+
+🧩 Modules
+
+Module	Description
+secure_server.py	SSL-enabled server receiving alerts from clients
+secure_client.py	Sends simulated alerts securely to the server
+auto_logger.py	Randomly logs threat events for testing
+dashboard.py	GUI interface showing logs, charts, and popups
+threat_db.py	Manages threat patterns and severities via SQLite
+init_db.py	Initializes the threat classification database
+log_parser.py	Parses logs and counts threat frequency
+🚀 How It Works
+Clients send alerts to the SSL server.
+
+Server logs them in logs.txt.
+
+GUI Dashboard reads logs, classifies threats, and displays:
+
+Realtime logs
+
+Bar charts for frequency
+
+Pop-up alerts for high-severity threats
+
+Database stores threat patterns and severity dynamically.
+
+📦 Deployment Options
+✅ Run in VS Code (Python)
+
+✅ Build as .exe desktop app (with PyInstaller)
+
+✅ Modular & extensible: New clients and threats can be added easily
+
